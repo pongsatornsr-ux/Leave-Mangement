@@ -1,0 +1,341 @@
+/* ========================================= */
+/* PersonalLeave.css - Modern Paper Form Style */
+/* ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #007bff;
+  --text-color: #333;
+  --border-color: #333;
+  --bg-color: #f0f2f5;
+  --paper-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  --input-focus: #0056b3;
+}
+
+body {
+  background-color: var(--bg-color);
+  font-family: 'Sarabun', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Container & Paper Layout --- */
+.paper-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  min-height: 100vh;
+}
+
+.paper {
+  width: 100%;
+  max-width: 210mm; /* A4 Width */
+  min-height: 297mm; /* A4 Height */
+  background: white;
+  padding: 50px 60px;
+  color: var(--text-color);
+  border: 1px solid #dcdcdc;
+  box-shadow: var(--paper-shadow);
+  box-sizing: border-box;
+  position: relative;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* --- Typography --- */
+.title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #000;
+}
+
+.section-title {
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* --- Form Rows & Layout --- */
+.row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.row span {
+  white-space: nowrap;
+}
+
+/* --- Input Lines (The "Fill in the blank" look) --- */
+.line {
+  border: none;
+  border-bottom: 1px dotted var(--border-color);
+  padding: 0 5px;
+  outline: none;
+  background: transparent;
+  font-family: 'Sarabun', sans-serif;
+  font-size: 16px;
+  color: #000;
+  text-align: center;
+  transition: border-bottom 0.3s ease;
+}
+
+.line:focus {
+  border-bottom: 1px solid var(--primary-color);
+  background-color: rgba(0, 123, 255, 0.02);
+}
+
+.line:disabled, .line[readonly] {
+  background: transparent;
+  color: #555;
+  cursor: default;
+  border-bottom: 1px dashed #ccc;
+}
+
+/* --- Fix Auto-fill Background Color (ส่วนที่เพิ่มเข้ามาแก้ไขปัญหาสีฟ้า) --- */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important; /* บังคับพื้นหลังขาวทับสีฟ้า */
+    -webkit-text-fill-color: #000 !important; /* บังคับตัวหนังสือสีดำ */
+    transition: background-color 5000s ease-in-out 0s; /* ชะลอการเปลี่ยนสี */
+}
+
+/* --- Input Sizes --- */
+.line.tiny { width: 60px; }
+.line.small { width: 190px; }
+.line.medium { width: 220px; }
+.line.large { width: 300px; flex-grow: 1; }
+.line.full-width { width: 100%; }
+.line.signature-input { width: 250px; margin-top: 5px; }
+
+/* --- Checkboxes --- */
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--primary-color);
+}
+
+/* --- Sections --- */
+.section {
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.subject-section, .content-section, .contact-area {
+  margin-bottom: 20px;
+}
+
+/* --- Signature Area --- */
+.signature-area {
+  margin-top: 50px;
+  display: flex;
+  justify-content: flex-end; /* ชิดขวา */
+  padding-right: 50px;
+}
+
+.sign-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: auto;
+}
+
+.signature-control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sign-label {
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.canvas-container {
+  border-radius: 4px;
+  cursor: crosshair;
+  background-color: #fff;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* --- Signature Buttons --- */
+.button-group {
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+}
+
+.btn-clear, .btn-save {
+  padding: 5px 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-clear {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-save {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-clear:hover, .btn-save:hover {
+  opacity: 0.85;
+}
+
+/* --- Main Submit Button --- */
+.form-actions-container {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.submit-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px 40px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+}
+
+.submit-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ========================================= */
+/* Responsive Design (Mobile) */
+/* ========================================= */
+@media screen and (max-width: 768px) {
+  .paper-container {
+    padding: 10px;
+  }
+
+  .paper {
+    padding: 20px;
+    width: 100%;
+    min-height: auto;
+  }
+
+  .title {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  
+  .row span {
+    font-weight: 600;
+    margin-top: 10px;
+  }
+
+  /* Make inputs full width on mobile for easier tapping */
+  .line, .line.tiny, .line.small, .line.medium, .line.large {
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+  }
+
+  /* Adjust checkboxes layout */
+  .leave-purpose-area .row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .checkbox-label {
+    width: 100%;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+
+  .signature-area {
+    justify-content: center;
+    padding-right: 0;
+  }
+}
+
+/* ========================================= */
+/* Print Styles */
+/* ========================================= */
+@media print {
+  body {
+    background: white;
+  }
+
+  .paper-container {
+    padding: 0;
+    display: block;
+  }
+
+  .paper {
+    width: 100%;
+    max-width: 100%;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Hide buttons when printing */
+  .button-group, 
+  .form-actions-container,
+  .submit-button-wrapper {
+    display: none !important;
+  }
+
+  /* Fix canvas borders for print */
+  .canvas-container {
+    border: 1px solid #000 !important;
+  }
+
+  /* Ensure inputs look like text */
+  .line {
+    border-bottom: 1px solid #000;
+  }
+  
+  /* Force page breaks if needed */
+  .page-break {
+    page-break-after: always;
+  }
+}

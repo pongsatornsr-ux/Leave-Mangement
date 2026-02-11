@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;700&display=swap');
+
+/* ================================
+   โครงหน้ากระดาษ A4
+================================ */
+.LeaveDetailVacationA4 {
+    background: #dcdcdc;
+    padding: 0; /* ลด padding เพื่อลด page break */
+    display: flex;
+    justify-content: center;
+    font-family: 'Sarabun', sans-serif;
+    min-height: 100vh;
+}
+
+.paper-a4 {
+    background: #fff;
+    width: 210mm;
+    height: 297mm; /* fix A4 size */
+    padding: 20mm 25mm 20mm 30mm;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    box-sizing: border-box;
+    font-size: 10pt;
+    line-height: 1.25; /* ลด line-height ให้พอดีกระดาษ */
+    color: #000;
+    display: block; /* ป้องกัน flex ทำให้ content split */
+    overflow: hidden;
+}
+
+/* ================================
+   Header
+================================ */
+.a4-header-right {
+    text-align: right;
+    margin-bottom: 5px;
+}
+
+.a4-header-center {
+    text-align: right;
+    margin-bottom: 10px;
+    font-size: 10pt;
+}
+
+/* ================================
+   Row & Label
+================================ */
+.a4-row-spaced {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px; /* ลด margin */
+}
+
+.a4-label {
+    width: 70px;
+    flex-shrink: 0;
+}
+
+/* ================================
+   Paragraph (ย่อหน้าแบบไทย)
+================================ */
+.a4-paragraph {
+    margin-bottom: 8px; /* ลด margin */
+    text-align: justify;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+}
+
+.a4-paragraph-no-indent {
+    margin-bottom: 6px;
+}
+
+/* ================================
+   Input เส้นประ
+================================ */
+.input-dotted {
+    border: none;
+    border-bottom: 1px dotted #000;
+    font-family: 'Sarabun', sans-serif;
+    background: transparent;
+    font-size: 10pt;
+    height: 24px;
+    padding: 0 4px;
+    color: #000;
+    outline: none;
+}
+
+.input-dotted:disabled {
+    color: #000;
+    opacity: 1;
+}
+
+/* ================================
+   Checkbox แบบกล่อง
+================================ */
+.checkbox-item {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+.box-square {
+    width: 15px;
+    height: 15px;
+    border: 1px solid #000;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 6px;
+    font-size: 13px;
+    line-height: 1;
+}
+
+/* ================================
+   ตารางสถิติลา
+================================ */
+.stats-table-container {
+    margin-top: 15px;
+    margin-bottom: 8px;
+}
+
+.stats-header-text {
+    text-decoration: underline;
+    margin-bottom: 4px;
+}
+
+.a4-table {
+    width: 50%;
+    border-collapse: collapse;
+    font-size: 10pt;
+}
+
+.a4-table th,
+.a4-table td {
+    border: 1px solid #000;
+    padding: 2px 4px;
+    text-align: center;
+}
+
+.a4-table th {
+    background: #f0f0f0;
+}
+
+.table-input {
+    width: 100%;
+    border: none;
+    text-align: center;
+    background: transparent;
+    font-size: 10pt;
+}
+
+/* ================================
+   ลายเซ็น
+================================ */
+.signature-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.sig-block {
+    width: 60%;
+    text-align: center;
+}
+
+.sig-block-right {
+    margin-top: -120px; /* ลดสูงลงให้อยู่บนแผ่นเดียว */
+}
+
+.sig-canvas-box {
+    width: 180px;
+    height: 60px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    border-bottom: 1px dotted #000;
+}
+
+/* ================================
+   ความเห็นผู้บังคับบัญชา
+================================ */
+.manager-section {
+    margin-top: 15px;
+    border-top: 1px solid #000;
+    padding-top: 10px;
+}
+
+.manager-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ================================
+   พิมพ์เอกสาร (Print Mode)
+================================ */
+@media print {
+    nav,
+    header,
+    .navbar,
+    .top-bar {
+        display: none !important;
+    }
+
+    body {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .paper-container-a4 {
+        padding: 0 !important;
+        background: none !important;
+    }
+
+    .paper-a4 {
+        width: 210mm !important;
+        height: 297mm !important;
+        padding: 20mm 25mm 20mm 30mm !important;
+        box-shadow: none !important;
+        page-break-after: auto !important;
+        overflow: hidden !important;
+        display: block;
+    }
+}
+
+@page {
+    size: A4;
+    margin: 0;
+}

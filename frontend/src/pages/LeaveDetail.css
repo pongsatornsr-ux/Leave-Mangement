@@ -1,0 +1,229 @@
+.detailform {
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 40px 50px;
+  background: white;
+  font-family: "Sarabun", sans-serif;
+  color: #000;
+  border: 1px solid #ddd;
+  line-height: 1.6;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+/* ทำให้เวลาแสดงผลคล้ายกระดาษ */
+@media screen {
+  body {
+    background: #f5f5f5;
+  }
+}
+
+/* ========================= */
+/*          TITLE            */
+/* ========================= */
+.detailform .title {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+/* ========================= */
+/*         SECTIONS          */
+/* ========================= */
+.detailform .section,
+.detailform .section-header {
+  margin-bottom: 25px;
+}
+
+.detailform .section-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 17px;
+}
+
+/* ========================= */
+/*           ROW             */
+/* ========================= */
+.detailform .row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+/* ========================= */
+/*         INPUT LINE        */
+/* ========================= */
+.detailform .line {
+  border: none;
+  border-bottom: 1px dotted #666;
+  padding: 4px;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  min-width: 80px;
+}
+
+.detailform .line:disabled {
+  background: transparent;
+  color: #000;
+  opacity: 1;
+}
+
+.detailform .line.large { width: 260px; }
+.detailform .line.medium { width: 180px; }
+.detailform .line.small { width: 130px; }
+.detailform .line.tiny { width: 60px; text-align: center; }
+.detailform .line.full-width { flex: 1; }
+
+/* ========================= */
+/*        CHECKBOX / RADIO   */
+/* ========================= */
+.detailform .checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.detailform .check-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+/* ========================= */
+/*          DIVIDER          */
+/* ========================= */
+.detailform .divider {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 25px 0;
+}
+
+/* ========================= */
+/*           TABLE           */
+/* ========================= */
+.detailform table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.detailform table th,
+.detailform table td {
+  border: 1px solid #999;
+  padding: 8px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.detailform table input {
+  width: 80px;
+  border: none;
+  background: transparent;
+  text-align: center;
+}
+
+.detailform table input:disabled {
+  color: #000;
+}
+
+/* ========================= */
+/*        SIGNATURE AREA     */
+/* ========================= */
+.detailform .signature-area {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.detailform .sign-block {
+  text-align: center;
+  margin: 20px auto;
+}
+
+.detailform .sign-name-input {
+  width: 230px;
+}
+
+.detailform .disapproval-reason {
+  width: 250px;
+}
+
+/* ========================= */
+/*     APPROVAL SECTIONS     */
+/* ========================= */
+.detailform .approval-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 30px;
+  flex-wrap: wrap; /* responsive */
+}
+
+.detailform .checker-section,
+.detailform .commander-section {
+  width: 48%;
+  min-width: 280px;
+  box-sizing: border-box;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.detailform .checker-section h3,
+.detailform .commander-section h3 {
+  margin-bottom: 10px;
+}
+
+/* ========================= */
+/*       SIGN BLOCK STYLE    */
+/* ========================= */
+.detailform .sign-block img {
+  width: 250px;
+  height: 80px;
+  object-fit: contain;
+  display: block;
+  margin: 5px auto;
+}
+
+/* ========================= */
+/*       PRINT SETTINGS      */
+/* ========================= */
+@media print {
+  body {
+    background: white !important;
+  }
+
+  nav,
+  header,
+  footer,
+  .navbar,
+  .app-title,
+  .topbar {
+    display: none !important;
+  }
+
+  .detailform {
+    box-shadow: none;
+    border: none;
+    margin: 0;
+    padding: 20mm 15mm;
+    width: 210mm;
+    min-height: 297mm;
+    page-break-inside: avoid;
+  }
+
+  .divider {
+    margin: 12px 0;
+  }
+
+  .approval-section {
+    page-break-inside: avoid;
+  }
+}

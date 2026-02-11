@@ -1,0 +1,265 @@
+/* CSS Style Sheet: Leave Form (Dotted Line Version) */
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Tahoma:wght@400;700&display=swap');
+
+/* ✅ ใช้ .page-vacation-leave นำหน้าทุกคลาส เพื่อป้องกัน CSS ตีกันกับหน้าอื่น */
+
+.page-vacation-leave.paper-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f0f0f0;
+    min-height: 100vh;
+    font-family: 'Sarabun', 'Tahoma', sans-serif;
+}
+
+.page-vacation-leave .paper {
+    background-color: white;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px; /* ขนาดกระดาษ */
+    line-height: 1.8;
+    color: #333;
+    position: relative;
+}
+
+.page-vacation-leave .title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    /* เส้นทึบเพื่อเน้นหัวข้อหลัก */
+    border-bottom: 2px solid #333; 
+    padding-bottom: 10px;
+    color: #000;
+}
+
+.page-vacation-leave .subtitle {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+}
+
+/* จัด Layout แถว */
+.page-vacation-leave .row {
+    display: flex;
+    align-items: baseline; /* จัดให้ข้อความตรงกับเส้นบรรทัด */
+    gap: 10px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.page-vacation-leave .row span {
+    white-space: nowrap;
+}
+
+/* จัด Header (เขียนที่, วันที่) ให้ชิดขวา ตามแบบฟอร์มราชการ */
+.page-vacation-leave .section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+/* --- Input Styles (เส้นจุดไข่ปลา) --- */
+.page-vacation-leave .line {
+    border: none;
+    /* ✅ เปลี่ยนจาก solid เป็น DOTTED ตามที่คุณต้องการ */
+    border-bottom: 1px dotted #333; 
+    flex-grow: 1;
+    min-width: 50px;
+    padding: 0 5px;
+    font-family: inherit;
+    font-size: 16px;
+    background: transparent;
+    color: #000;
+    text-align: center;
+    outline: none;
+}
+
+.page-vacation-leave .line:focus {
+    border-bottom: 1px solid #000; /* ไฮไลท์เส้นทึบเมื่อพิมพ์ */
+}
+
+/* ขนาดของ Input */
+.page-vacation-leave .line.small { width: 140px; flex-grow: 0; }
+.page-vacation-leave .line.tiny { width: 60px; flex-grow: 0; }
+.page-vacation-leave .line.medium { width: 220px; flex-grow: 0; text-align: left; }
+.page-vacation-leave .line.large { width: 280px; flex-grow: 0; text-align: left; }
+.page-vacation-leave .line.full-width { width: 100%; flex-grow: 1; text-align: left; }
+
+/* เส้นแบ่ง */
+.page-vacation-leave .divider {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 25px 0;
+}
+
+.page-vacation-leave .divider-sm {
+    border: none;
+    /* ใช้ dashed แยกส่วนย่อย */
+    border-top: 1px dashed #ccc; 
+    margin: 20px 0;
+}
+
+/* --- Stats Table --- */
+.page-vacation-leave .stats-container {
+    overflow-x: auto;
+    margin-top: 10px;
+}
+
+.page-vacation-leave .table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.page-vacation-leave .table th, 
+.page-vacation-leave .table td {
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: center;
+}
+
+.page-vacation-leave .table th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+.page-vacation-leave .table input[type="number"] {
+    border: none;
+    width: 100%;
+    text-align: center;
+    background: transparent;
+    font-size: 16px;
+    outline: none;
+}
+
+/* ช่องที่ Disabled ให้ตัวหนังสือเข้มชัดเจน */
+.page-vacation-leave .table td input:disabled,
+.page-vacation-leave .line:disabled {
+    color: #000;
+    font-weight: 500;
+    background-color: transparent;
+    cursor: default;
+}
+
+/* --- Signature Styling --- */
+.page-vacation-leave .signature-area {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+
+.page-vacation-leave .sign-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+}
+
+.page-vacation-leave .signature-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fafafa;
+    margin-bottom: 10px;
+}
+
+.page-vacation-leave .sign-label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.page-vacation-leave .canvas-container {
+    position: relative;
+    width: 250px;
+    height: 100px;
+    border: 1px dashed #999;
+    background-color: white;
+    margin-bottom: 10px;
+}
+
+.page-vacation-leave .signature-canvas {
+    width: 100%;
+    height: 100%;
+    cursor: crosshair;
+}
+
+/* ปุ่มจัดการลายเซ็น */
+.page-vacation-leave .button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.page-vacation-leave .button-group button {
+    padding: 5px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.page-vacation-leave .btn-clear { background-color: #ef4444; color: white; }
+.page-vacation-leave .btn-save { background-color: #10b981; color: white; }
+
+.page-vacation-leave .sign-name-input {
+    text-align: center;
+    width: 220px;
+    border: none;
+    border-bottom: 1px dotted #333; 
+    padding: 5px;
+    background: transparent;
+    margin-top: 5px;
+    outline: none;
+}
+
+/* --- Submit Button --- */
+.page-vacation-leave .submit-btn {
+    padding: 12px 40px;
+    background-color: #2563eb; /* สีน้ำเงินราชการ */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.page-vacation-leave .submit-btn:hover:not(:disabled) {
+    background-color: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+.page-vacation-leave .submit-btn:disabled {
+    background-color: #93c5fd;
+    cursor: not-allowed;
+}
+
+/* Alert Box */
+.page-vacation-leave .alert-box {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+}
+.page-vacation-leave .alert-box.success { background-color: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+.page-vacation-leave .alert-box.error { background-color: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .page-vacation-leave { padding: 10px; }
+    .page-vacation-leave .paper { padding: 20px; width: 100%; }
+    .page-vacation-leave .section-header { align-items: flex-start; }
+    .page-vacation-leave .row { flex-direction: column; align-items: flex-start; }
+    .page-vacation-leave .line { width: 100% !important; text-align: left; }
+    .page-vacation-leave .signature-area { justify-content: center; }
+}
